@@ -1,0 +1,36 @@
+<h2>Titles</h2>
+
+<form name="form">
+  <div class="row">
+    <div class="col-10">
+      <input
+        class="form-control"
+        type="text"
+        (input)="onPokemontNameInputCgange($event)"
+        [(ngModel)]="currentPokemonName"
+        name="pokemonName"
+      />
+    </div>
+    <div class="col-2">
+      <button
+        (click)="onAddButtonCick()"
+        [disabled]="!canClickBtn"
+        class="btn btn-primary"
+      >
+        Add
+      </button>
+    </div>
+  </div>
+</form>
+
+<div *ngIf="pokemonAdded else noPokemon">
+  {{ currentPokemonName }} added
+</div>
+
+<ng-template #noPokemon >
+    Nothing done yet ...
+</ng-template>
+
+<app-pokemon-item></app-pokemon-item>
+<app-pokemon-item></app-pokemon-item>
+<app-pokemon-item></app-pokemon-item>

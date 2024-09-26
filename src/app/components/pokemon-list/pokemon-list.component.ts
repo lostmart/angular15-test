@@ -9,6 +9,7 @@ export class PokemonListComponent {
   canClickBtn = false;
   currentPokemonName = '';
   pokemonAdded = false;
+  pokemons: string[] = ["Penucho", "Mertolokh", "Zimbahue"]
 
   onPokemontNameInputCgange(e: Event) {
     const inputElement = e.target as HTMLInputElement;
@@ -24,5 +25,6 @@ export class PokemonListComponent {
 
   onAddButtonCick() {
     this.pokemonAdded = true;
+    this.pokemons.push(this.currentPokemonName)
   }
 }

@@ -13,6 +13,7 @@
     </div>
     <div class="col-2">
       <button
+        type="submit"
         (click)="onAddButtonCick()"
         [disabled]="!canClickBtn"
         class="btn btn-primary"
@@ -23,14 +24,11 @@
   </div>
 </form>
 
-<div *ngIf="pokemonAdded else noPokemon">
-  {{ currentPokemonName }} added
-</div>
+<div *ngIf="pokemonAdded; else noPokemon">{{ currentPokemonName }} added</div>
 
-<ng-template #noPokemon >
-    Nothing done yet ...
-</ng-template>
+<ng-template #noPokemon> Nothing done yet ... </ng-template>
 
-<app-pokemon-item></app-pokemon-item>
-<app-pokemon-item></app-pokemon-item>
-<app-pokemon-item></app-pokemon-item>
+<ng-container *ngFor="let pokemon of pokemons; let i = index">
+  {{ i }}
+  <app-pokemon-item [name]="pokemon" ></app-pokemon-item>
+</ng-container>

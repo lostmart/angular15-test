@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 
 type CarType = 'sport' | 'classic';
 
-export type Car = {
+export type TCar = {
   carName: string;
   type: CarType;
+  year: number;
 };
 @Component({
   selector: 'app-root',
@@ -13,4 +14,17 @@ export type Car = {
 })
 export class AppComponent {
   title = 'These are cars';
+  cars: TCar[] = [];
+
+  getRandomYear() {
+    return Math.floor(Math.random() * 91) + 1940;
+  }
+
+  addCar(nameOfCar: string) {
+    this.cars.push({
+      carName: nameOfCar,
+      type: Math.random() > 0.5 ? 'classic' : 'sport',
+      year: this.getRandomYear(),
+    });
+  }
 }

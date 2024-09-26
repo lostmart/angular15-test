@@ -14,6 +14,7 @@ export type TCar = {
 })
 export class AppComponent {
   title = 'These are cars';
+  currentCarName = '';
   cars: TCar[] = [];
 
   getRandomYear() {
@@ -23,8 +24,13 @@ export class AppComponent {
   addCar(nameOfCar: string) {
     this.cars.push({
       carName: nameOfCar,
-      type: Math.random() > 0.5 ? 'classic' : 'sport',
+      type: Math.random() > 0.3 ? 'classic' : 'sport',
       year: this.getRandomYear(),
     });
+  }
+
+  onAddCarClick() {
+    this.addCar(this.currentCarName);
+    this.currentCarName = ''
   }
 }

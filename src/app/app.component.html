@@ -1,13 +1,16 @@
 <div class="container mt-5">
   <h1 class="mb-3">{{ title }}</h1>
-  <form>
-    <div class="row">
-      <div class="col-9">
-        <input class="form-control" type="text" />
-      </div>
-      <div class="col-3">
-        <button class="btn btn-primary">Add Car</button>
-      </div>
+
+  <div class="row mb-3">
+    <div class="col-9">
+      <input class="form-control" type="text" [(ngModel)]="currentCarName" />
     </div>
-  </form>
+    <div class="col-3">
+      <button (click)="onAddCarClick()" class="btn btn-primary">Add Car</button>
+    </div>
+  </div>
+
+  <div *ngFor="let car of cars">
+    {{ car.carName }} - {{ car.type }} - {{ car.year }}
+  </div>
 </div>

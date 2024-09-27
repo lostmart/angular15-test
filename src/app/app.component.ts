@@ -1,12 +1,6 @@
 import { Component } from '@angular/core';
+import { TCar, CarService } from './services/car.service';
 
-type CarType = 'sport' | 'classic';
-
-export type TCar = {
-  carName: string;
-  type: CarType;
-  year: number;
-};
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -15,26 +9,26 @@ export type TCar = {
 export class AppComponent {
   title = 'These are cars';
   currentCarName = '';
-  cars: TCar[] = [];
+  cars: TCar[] = this.carService.cars;
 
-  getRandomYear() {
-    return Math.floor(Math.random() * 91) + 1940;
-  }
-
-  addCar(nameOfCar: string) {
-    this.cars.push({
-      carName: nameOfCar,
-      type: Math.random() > 0.3 ? 'classic' : 'sport',
-      year: this.getRandomYear(),
-    });
+  constructor(private carService: CarService) {
+    
   }
 
   onAddCarClick() {
-    this.addCar(this.currentCarName);
+    this.carService.addCar(this.currentCarName);
     this.currentCarName = '';
   }
 
-  onDeleteCarEmit(index: number) {
-    this.cars.splice(index, 1)
+  // addCar(nameOfCar: string) {
+  //   this.cars.push({
+  //     carName: nameOfCar,
+  //     type: Math.random() > 0.3 ? 'classic' : 'sport',
+  //     year: this.getRandomYear(),
+  //   });
+  // }
+
+  deleteCarEmit(index: number) {
+    this.carService.deleteCarEmit(index);
   }
 }

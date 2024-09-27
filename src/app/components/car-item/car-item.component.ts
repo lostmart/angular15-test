@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { TCar } from 'src/app/app.component';
+import { TCar } from 'src/app/services/car.service';
 
 @Component({
   selector: 'app-car-item',

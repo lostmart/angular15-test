@@ -1,1 +1,18 @@
-<p>home works!</p>
+<div class="container mt-5">
+  <h1 class="mb-3">{{ title }}</h1>
+
+  <div class="row mb-3">
+    <div class="col-9">
+      <input class="form-control" type="text" [(ngModel)]="currentCarName" />
+    </div>
+    <div class="col-3">
+      <button (click)="onAddCarClick()" class="btn btn-primary">Add Car</button>
+    </div>
+  </div>
+
+  <app-car-item
+    (delete)="deleteCarEmit(index)"
+    *ngFor="let car of cars; let index = index"
+    [car]="car"
+  ></app-car-item>
+</div>

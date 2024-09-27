@@ -6,7 +6,7 @@
     'text-bg-info': car.type === 'classic'
   }"
 >
-  <div class="col-9">{{ car.carName }} - {{ car.year }}</div>
+  <div class="col-9">{{ car.carName }} - {{ car.year }} - {{ car.type }}</div>
   <div class="col-3">
     <button (click)="onCarDelete()" class="btn btn-warning d-flex">
       <span class="material-symbols-outlined"> delete </span>

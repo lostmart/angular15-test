@@ -14,7 +14,7 @@ const routes: Routes = [
     component: HomeComponent,
   },
   {
-    path: 'car',
+    path: 'car/:index',
     component: CarComponent,
   },
 ];

@@ -10,7 +10,5 @@
     </div>
   </div>
 
-  <div *ngFor="let car of cars">
-    {{ car.carName }} - {{ car.type }} - {{ car.year }}
-  </div>
+  <app-car-item (delete)="onDeleteCarEmit(index)" *ngFor="let car of cars; let index = index" [car]="car"></app-car-item>
 </div>

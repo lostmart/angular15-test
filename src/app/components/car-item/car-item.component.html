@@ -1,1 +1,6 @@
-<p>car-item works!</p>
+<div class="cat-item row align-items-center" *ngIf="car">
+  <div class="col-9">{{ car.carName }} - {{ car.year }}</div>
+  <div class="col-3">
+    <button (click)="onCarDelete()" class="btn btn-outline-warning">Delete Car</button>
+  </div>
+</div>

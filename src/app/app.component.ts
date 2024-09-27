@@ -31,6 +31,10 @@ export class AppComponent {
 
   onAddCarClick() {
     this.addCar(this.currentCarName);
-    this.currentCarName = ''
+    this.currentCarName = '';
+  }
+
+  onDeleteCarEmit(index: number) {
+    this.cars.splice(index, 1)
   }
 }

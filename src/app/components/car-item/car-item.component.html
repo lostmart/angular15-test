@@ -1,6 +1,15 @@
-<div class="cat-item row align-items-center" *ngIf="car">
+<div
+  class="cat-item row align-items-center p-3 border"
+  *ngIf="car"
+  [ngClass]="{
+    'text-bg-primary': car.type === 'sport',
+    'text-bg-info': car.type === 'classic'
+  }"
+>
   <div class="col-9">{{ car.carName }} - {{ car.year }}</div>
   <div class="col-3">
-    <button (click)="onCarDelete()" class="btn btn-outline-warning">Delete Car</button>
+    <button (click)="onCarDelete()" class="btn btn-warning d-flex">
+      <span class="material-symbols-outlined"> delete </span>
+    </button>
   </div>
 </div>

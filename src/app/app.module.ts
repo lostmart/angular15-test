@@ -24,7 +24,7 @@ const routes: Routes = [
         component: GeneralComponent,
       },
       {
-        path: '',
+        path: 'details',
         component: DetailsComponent,
       },
     ],

@@ -1,6 +1,11 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 
+export interface Tab {
+  name: string;
+  path: string;
+}
+
 @Component({
   selector: 'app-car',
   templateUrl: './car.component.html',
@@ -8,6 +13,16 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 })
 export class CarComponent {
   currentIndex: number = 0;
+  tabs: Tab[] = [
+    {
+      name: 'General',
+      path: './',
+    },
+    {
+      name: 'Details',
+      path: './details',
+    },
+  ];
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute) {
     // bind to params

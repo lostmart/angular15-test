@@ -18,11 +18,28 @@ const routes: Routes = [
   {
     path: 'car/:index',
     component: CarComponent,
+    children: [
+      {
+        path: '',
+        component: GeneralComponent,
+      },
+      {
+        path: '',
+        component: DetailsComponent,
+      },
+    ],
   },
 ];
 
 @NgModule({
-  declarations: [AppComponent, CarItemComponent, HomeComponent, CarComponent, GeneralComponent, DetailsComponent],
+  declarations: [
+    AppComponent,
+    CarItemComponent,
+    HomeComponent,
+    CarComponent,
+    GeneralComponent,
+    DetailsComponent,
+  ],
   imports: [BrowserModule, FormsModule, RouterModule.forRoot(routes)],
   providers: [],
   bootstrap: [AppComponent],

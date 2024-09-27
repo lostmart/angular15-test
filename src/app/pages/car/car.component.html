@@ -1,2 +1,7 @@
 <button class="btn btn-outline-primary" routerLink="/">Home</button>
 <p>car works!</p>
+<button [routerLink]="['/car', currentIndex+1]" class="btn btn-info">
+  go next
+</button>
+
+<span>{{ currentIndex }}</span>

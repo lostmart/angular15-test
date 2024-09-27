@@ -1,4 +1,3 @@
-<button class="btn btn-outline-primary" routerLink="/car/12">Car</button>
 <div class="container mt-5">
   <h1 class="mb-3">{{ title }}</h1>
 
@@ -15,5 +14,6 @@
     (delete)="deleteCarEmit(index)"
     *ngFor="let car of cars; let index = index"
     [car]="car"
+    [routerLink]="['/car', index]"
   ></app-car-item>
 </div>

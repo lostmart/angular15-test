@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
   selector: 'app-car',
@@ -7,12 +7,16 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./car.component.css'],
 })
 export class CarComponent {
+  currentIndex: number = 0;
+
   constructor(private router: Router, private activatedRoute: ActivatedRoute) {
-    // setTimeout(() => {
-    //   this.goHome();
-    // }, 2000);
-    const indexStr = this.activatedRoute.snapshot.params['index'];
-    const index = parseInt(indexStr);
+    // bind to params
+    // binds is an observable, so you can subscribe to it
+    this.activatedRoute.params.subscribe((params: Params) => {
+      const indexStr = params['index'];
+      const index = parseInt(indexStr);
+      this.currentIndex = index;
+    });
   }
 
   goHome() {

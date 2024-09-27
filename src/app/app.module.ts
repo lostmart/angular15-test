@@ -7,6 +7,8 @@ import { CarItemComponent } from './components/car-item/car-item.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { CarComponent } from './pages/car/car.component';
+import { GeneralComponent } from './pages/car/general/general.component';
+import { DetailsComponent } from './pages/car/details/details.component';
 
 const routes: Routes = [
   {
@@ -20,7 +22,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, CarItemComponent, HomeComponent, CarComponent],
+  declarations: [AppComponent, CarItemComponent, HomeComponent, CarComponent, GeneralComponent, DetailsComponent],
   imports: [BrowserModule, FormsModule, RouterModule.forRoot(routes)],
   providers: [],
   bootstrap: [AppComponent],
